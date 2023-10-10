@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // установка начальных значений
     let name = ''
     let number = Math.floor(Math.random() * 1000)
     let guesses = 0
     let wrongGuesses = 0
     let isHint = false
-
+    // добавление элементов инпута и кнопки рестарта
     const output = document.querySelector('#output')
     const prompt = document.querySelector('#prompt')
     const input = document.querySelector('#prompt input')
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     prompt.addEventListener('submit', handleSubmit);
 
 
-
+    // добавление элементов чекбокса
     const customNumberCheckbox = document.querySelector('#customNumberCheckbox')
     const customNumberInputContainer = document.querySelector('#customNumberInputContainer')
     const checkboxContainer = document.querySelector('.guess-checkbox-container')
@@ -21,8 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const numberErrorMessage = document.querySelector('#numberErrorMessage')
     const guessNumberText = document.querySelector('.guess-checkbox-container #guessNumberText')
     const guessNumberTextChecked = document.querySelector('.guess-checkbox-container #guessNumberTextChecked')
-
-    customNumberCheckbox.addEventListener('change', (event) => {
+    
+    // hide show логика для чекбокса
+    customNumberCheckbox.addEventListener('change', () => {
         if (customNumberCheckbox.checked) {
             customNumberInputContainer.style.display = 'block';
             guessNumberText.style.display = 'none'
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     printMessage('Введите имя игрока:');
 
-
+    // функция для установки числа а так же ошибки в случае если чсило тбудет меньше 0 или больше 1000
     customNumberInput.addEventListener('keydown', (event) => {
         if (event.key === "Enter") { 
             event.preventDefault(); 
@@ -69,16 +72,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 
-
+    // устанавливаем фокус на инпут
     input.focus();
 
+    // функция для отправки чисел и имени в начале
     function handleSubmit (event) {
         event.preventDefault()
         processInput(input.value);
         input.value = ''
     }
 
-
+    // устанавливаем текст и подсказку 
     function printMessage(message, isHint = false) {
         let li = document.createElement('li');
         li.textContent = message;
@@ -98,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+        // функция для обработки введеного числа и вывода результата
     function processInput(inputText) {
         if (!inputText) return;
 
@@ -141,7 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-
+    
+    // логика рестарт кнопки
     restartButton.addEventListener('click', () => {
         while (output.firstChild) {
             output.removeChild(output.firstChild);
