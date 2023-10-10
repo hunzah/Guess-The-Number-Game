@@ -42,7 +42,7 @@ h2 {
 }
 .link:hover {
     cursor: pointer;
-    color:rgb(182, 104, 255);
+    color:#CB11AB;
 }
 
 .main {
@@ -51,6 +51,41 @@ h2 {
     gap: 16px;
     color: rgb(255, 255, 255);
 }
+
+#output {
+    list-style: none;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+#output li{
+    font-size: 24px;
+}
+
+.hint {
+    font-size: 16px;
+    color: rgb(41, 160, 22);
+}
+
+input {
+    border: none; 
+    border-bottom: 2px solid  rgb(63, 63, 63);
+    background-color: rgb(63, 63, 63);
+    color:white;
+    font-size: 24px; 
+    padding: 5px; 
+    outline: none;
+}
+
+
+input:focus {
+    border-bottom: 2px solid rgb(205, 205, 205);
+}
+
+.error-message {
+    color:rgb(197, 1, 1);
+}
+
 .guess-checkbox-container {
     display: flex;
     align-items: center;
@@ -94,36 +129,16 @@ h2 {
     width:60px;
 }
 
-#output {
-    list-style: none;
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
+#restartButton {
+    width: max-content;
+    padding: 6px;
+    background-color: #CB11AB;
+    border: none;
+    border-radius: 3px;
+    color: rgb(205, 205, 205);
+    margin: auto;
 }
-#output li{
-    font-size: 24px;
-}
-
-.hint {
-    font-size: 16px;
-    color: rgb(41, 160, 22);
-}
-
-input {
-    border: none; 
-    border-bottom: 2px solid  rgb(63, 63, 63);
-    background-color: rgb(63, 63, 63);
-    color:white;
-    font-size: 24px; 
-    padding: 5px; 
-    outline: none;
-}
-
-
-input:focus {
-    border-bottom: 2px solid rgb(205, 205, 205);
-}
-
-.error-message {
-    color:rgb(197, 1, 1);
+#restartButton:hover {
+    cursor: pointer;
+    color:white
 }

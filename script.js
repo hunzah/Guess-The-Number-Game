@@ -1,36 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let name = '';
+    let name = ''
     let number = Math.floor(Math.random() * 1000)
-    let guesses = 0;
-    let wrongGuesses = 0;
-    let isHint = false;
+    let guesses = 0
+    let wrongGuesses = 0
+    let isHint = false
 
-    const output = document.querySelector('#output');
-    const prompt = document.querySelector('#prompt');
-    const input = document.querySelector('#prompt input');
+    const output = document.querySelector('#output')
+    const prompt = document.querySelector('#prompt')
+    const input = document.querySelector('#prompt input')
+    const restartButton = document.querySelector('#restartButton')
 
     prompt.addEventListener('submit', handleSubmit);
 
 
 
-    const customNumberCheckbox = document.querySelector('#customNumberCheckbox');
-    const customNumberInputContainer = document.querySelector('#customNumberInputContainer');
+    const customNumberCheckbox = document.querySelector('#customNumberCheckbox')
+    const customNumberInputContainer = document.querySelector('#customNumberInputContainer')
     const checkboxContainer = document.querySelector('.guess-checkbox-container')
-    const customNumberInput = document.querySelector('#customNumber');
-    const numberErrorMessage = document.querySelector('#numberErrorMessage');
-    const guessNumberText = document.querySelector('.guess-checkbox-container #guessNumberText');
-    const guessNumberTextChecked = document.querySelector('.guess-checkbox-container #guessNumberTextChecked');
+    const customNumberInput = document.querySelector('#customNumber')
+    const numberErrorMessage = document.querySelector('#numberErrorMessage')
+    const guessNumberText = document.querySelector('.guess-checkbox-container #guessNumberText')
+    const guessNumberTextChecked = document.querySelector('.guess-checkbox-container #guessNumberTextChecked')
 
     customNumberCheckbox.addEventListener('change', (event) => {
         if (customNumberCheckbox.checked) {
-            customNumberInputContainer.style.display = 'block'; 
-            guessNumberText.style.display = 'none';
-            guessNumberTextChecked.style.display = 'block'; 
+            customNumberInputContainer.style.display = 'block';
+            guessNumberText.style.display = 'none'
+            guessNumberTextChecked.style.display = 'block';
             
         } else {
-            customNumberInputContainer.style.display = 'none'; 
-            guessNumberText.style.display = 'block';
-            guessNumberTextChecked.style.display = 'none'; 
+            customNumberInputContainer.style.display = 'none';
+            guessNumberText.style.display = 'block'
+            guessNumberTextChecked.style.display = 'none';
         }
     });
 
@@ -103,7 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!name) {
             name = inputText;
             clearOutput();
-            printMessage(`${name}, загадано число от 0 до 1000. Попробуй отгадать его за наименьшее количество попыток. После каждой попытки я скажу "мало", "много" или "верно".`);
+            printMessage(`${name}, загадано число от 0 до 1000. Попробуй отгадать его за наименьшее количество попыток. После каждой попытки я скажу "мало", "много" или "верно".`)
+            checkboxContainer.style.display = 'none'
             return;
         }
 
@@ -140,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    const restartButton = document.querySelector('#restartButton')
     restartButton.addEventListener('click', () => {
         while (output.firstChild) {
             output.removeChild(output.firstChild);
