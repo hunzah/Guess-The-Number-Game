@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let name = '';
-    let number = 0;
+    let number = Math.floor(Math.random() * 1000)
     let guesses = 0;
     let wrongGuesses = 0;
     let isHint = false;
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const inputValue = +event.target.value;
             if (inputValue === "") {
-                number = Math.floor(Math.random() * 1000);
                 customNumberInput.disabled = false; 
                 numberErrorMessage.textContent = ""; 
                 checkboxContainer.style.display = 'none'
@@ -116,6 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         guesses += 1;
 
+
+
         if (guess > number) {
             printMessage('Много. Попробуй еще раз.');
         } else if (guess < number) {
@@ -123,7 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             printMessage(`Верно, это число ${guess}.`);
             printMessage(`Количество попыток: ${guesses}.`);
-            prompt.remove();
+            prompt.style.display = 'none'
+            restartButton.style.display = 'block'
         }
 
         if (guess !== number) {
@@ -137,4 +139,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    const restartButton = document.querySelector('#restartButton')
+    restartButton.addEventListener('click', () => {
+        while (output.firstChild) {
+            output.removeChild(output.firstChild);
+        }
+
+        name = ''
+        number = Math.floor(Math.random() * 1000)
+        guesses = 0
+        wrongGuesses = 0
+        isHint = false
+
+
+        clearOutput();
+        input.value = ''
+
+        
+
+        input.focus()
+        prompt.style.display = 'block'
+        restartButton.style.display = 'none'
+        guessNumberText.classList.add('guess-checkbox-container')
+        guessNumberTextChecked.style.display = 'none'
+        customNumberInputContainer.style.display = 'none'
+        customNumberInputContainer.style.display = 'none'
+        customNumberInput.value = ''
+        customNumberInput.disabled = false
+        numberErrorMessage.textContent = ''
+        printMessage('Введите имя игрока:');
+    })
 })
