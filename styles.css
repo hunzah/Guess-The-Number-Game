@@ -13,7 +13,7 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('./src/images/backgroud.jpg');
-    background-size: cover; 
+    background-size: contain; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
     filter: grayscale(100%);
@@ -22,6 +22,7 @@ body {
 }
 
 .header {
+    padding-top:32px ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,21 +32,94 @@ body {
     margin: 0;
     padding: 0;
 }
+h2 {
+    margin: 0;
+    padding: 16px;
+}
 .link {
     text-decoration: none;
     color:inherit;
 }
 .link:hover {
     cursor: pointer;
-    color: rgb(255, 255, 255);
+    color:rgb(182, 104, 255);
 }
 
 .main {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    color: rgb(255, 255, 255);
+}
+.guess-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#customNumberCheckbox[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    border: 1px #9797AF solid;
+    border-radius: 6px;
+    box-sizing: border-box;
+    line-height: 0;
+    cursor: pointer;
+
+}
+
+#customNumberCheckbox[type='checkbox']:after {
+    content: url("./src/images/icons/checkbox.svg");
+    display: none;
+}
+
+#customNumberCheckbox[type='checkbox']:checked:after {
+    display: block;
+    background-color: #CB11AB;
+    border-radius: 6px;
+    width: 22px;
+    height: 22px;
+    border: none;
+}
+#customNumber{
+width: 32px;
 }
 
 #output {
     list-style: none;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+#output li{
+    font-size: 24px;
+}
 
+.hint {
+    font-size: 16px;
+    color: rgb(41, 160, 22);
+}
+
+input {
+    border: none; 
+    border-bottom: 2px solid  rgb(63, 63, 63);
+    background-color: rgb(63, 63, 63);
+    color:white;
+    font-size: 24px; 
+    padding: 5px; 
+    outline: none;
+}
+
+
+input:focus {
+    border-bottom: 2px solid rgb(205, 205, 205);
 }

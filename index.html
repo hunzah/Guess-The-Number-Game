@@ -9,22 +9,27 @@
 </head>
 <body>
     <img class="background" src="src//images/backgroud.jpg" alt="bgImage"/>
-    <div class="header">
+    <header class="header">
         <h1 class="title">
             Guess the Number       
          </h1>
         <h2>
             <a class="link" href="https://www.wildberries.ru/">for Wildberries</a>
          </h2> 
-    </div>
-    <div class="main">
-        <ul id="output">
-
-        </ul>
+    </header>
+    <main class="main">
+        <ul id="output"></ul>
+        <label class="guess-checkbox-container">
+            <input type="checkbox" id="customNumberCheckbox">
+            <span id="guessNumberText">Загадать число самому</span>
+        </label>
+        <div id="customNumberInputContainer" style="display: none;">
+            <input type="number" id="customNumber" min="1" max="1000">
+        </div>
         <form id="prompt">
-            <input/>
-        </form>>
-    </div>
+            <input>
+        </form>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
