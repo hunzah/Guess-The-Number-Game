@@ -146,12 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-    
+
     // логика рестарт кнопки
     restartButton.addEventListener('click', () => {
-        while (output.firstChild) {
-            output.removeChild(output.firstChild);
-        }
+        output.innerHTML = ''
 
         name = ''
         number = Math.floor(Math.random() * 1000)
@@ -168,7 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
         input.focus()
         prompt.style.display = 'block'
         restartButton.style.display = 'none'
-        guessNumberText.classList.add('guess-checkbox-container')
+        checkboxContainer.style.display = 'flex'
+        checkboxContainer.classList.add('guess-checkbox-container')
         guessNumberTextChecked.style.display = 'none'
         customNumberInputContainer.style.display = 'none'
         customNumberInputContainer.style.display = 'none'
