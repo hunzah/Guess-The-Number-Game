@@ -91,7 +91,7 @@ h2 {
     border: none;
 }
 #customNumber{
-width: 32px;
+    width:60px;
 }
 
 #output {
@@ -122,4 +122,8 @@ input {
 
 input:focus {
     border-bottom: 2px solid rgb(205, 205, 205);
+}
+
+.error-message {
+    color:rgb(197, 1, 1);
 }

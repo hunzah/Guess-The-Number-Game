@@ -19,16 +19,18 @@
     </header>
     <main class="main">
         <ul id="output"></ul>
+        <form id="prompt">
+            <input>
+        </form>
         <label class="guess-checkbox-container">
             <input type="checkbox" id="customNumberCheckbox">
             <span id="guessNumberText">Загадать число самому</span>
+            <span style="display: none;" id="guessNumberTextChecked">загадайте число от 1 до 1000</span>
         </label>
         <div id="customNumberInputContainer" style="display: none;">
             <input type="number" id="customNumber" min="1" max="1000">
         </div>
-        <form id="prompt">
-            <input>
-        </form>
+            <span id="numberErrorMessage" class="error-message"></span>
     </main>
     <script src="script.js"></script>
 </body>
